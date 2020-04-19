@@ -1,0 +1,31 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// media query manage
+
+/*
+0 - 600px : Phone
+600px-900px : tablet potrait
+900px-1200px : tablet landscape
+1200px -1800px : our normal design in this project
+
+1800pc ++ : big desktop
+*/
+
+// @mixin respond-phone {
+//     @media(max-width: 600px) {
+//         @content
+//     }
+// }

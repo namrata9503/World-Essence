@@ -128,7 +128,9 @@
         font-weight: 100;
     }
     // media query for card
-    @include respond(tab-port) {
+    // @include respond(tab-port) 
+    @media (max-width: 56.25em),
+    (hover:none) {
         height: auto;
         border-radius: 3px;
         background-color: $color-white;

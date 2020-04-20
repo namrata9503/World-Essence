@@ -9,8 +9,20 @@
     opacity: 0;
     visibility: hidden;
     transition: all .4s;
+
+    @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter : blur(10px)) {
+        -webkit-backdrop-filter: blur(10px) ;
+        backdrop-filter : blur(10px);
+        background-color: rgba($color-black, .3);
+    }
+    @include respond(tab-land) {
+        //     display: block;
+        //     @include clearfix;
+        overflow: auto;
+    }
     &__content {
         width: 75%;
+        margin: 7rem auto;
         background-color: $color-white;
         box-shadow: 0 2rem 4rem rgba($color-black, .4);
         border-radius: 3px;
@@ -20,20 +32,55 @@
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.25);
         transition: all .5s .2s;
+        // @include respond(tab-land) {
+        //     //     display: block;
+        //     //     @include clearfix;
+        //     overflow: scroll;
+        // }
+        @include respond(phone) {
+            margin: 4rem auto;
+        }
     }
     &__left {
         width: 33.333333%;
         display: table-cell;
+        @include respond(tab-land) {
+            width: 50%;
+            display: table-row;
+        }
+        @include respond(phone) {
+            width: 0%;
+        }
+    }
+    &__img {
+        display: block;
+        width: 100%;
+        height: 60vh;
+        // @include respond(tab-land) {
+        //     width: 50%;
+        //     float: left;
+        //     height: auto;
+        // }
+        @include respond(tab-land) {
+            float: left;
+            width: 50%;
+        }
+        @include respond(phone) {
+            width: 0%;
+            display: none;
+            // display: block;
+        }
     }
     &__right {
         width: 66.6666667%;
         display: table-cell;
         vertical-align: middle;
         padding: 3rem 5rem;
-    }
-    &__img {
-        display: block;
-        width: 100%;
+        // @include respond(tab-land) {
+        //     width: 100%;
+        //     display: block;
+        //     padding: 4rem 5rem;
+        // }
     }
     &__text {
         font-size: 1.4rem;
@@ -42,6 +89,10 @@
         column-gap: 4rem;
         column-rule: 1px solid $color-grey-light-2;
         hyphens: auto;
+        @include respond(tab-land) {
+            margin-bottom: 3rem;
+            column-count: 1;
+        }
     }
     //open popup
     &:target {
